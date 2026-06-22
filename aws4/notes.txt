@@ -1,0 +1,12 @@
+[
+    [
+        "nat-06a1feb40c7af8a4a",
+        "available"
+    ]
+]
+[
+    "3.0.53.98"
+]
+[
+    "175562787802.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/saxani"
+]
