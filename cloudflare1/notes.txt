@@ -1,4 +1,4 @@
-Nameserver
+Nameservers
 brett.ns.cloudflare.com
 hera.ns.cloudflare.com
 
