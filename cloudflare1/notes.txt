@@ -1,0 +1,11 @@
+Nameserver
+brett.ns.cloudflare.com
+hera.ns.cloudflare.com
+
+URL pages.dev
+https://syazanibahar-github-io.pages.dev/
+https://www.takadanama.asia/
+
+URL private-site
+https://private-site-1wp.pages.dev/
+https://private.takadanama.asia/
