@@ -1,0 +1,24 @@
+services:
+  profile:
+    image: redis
+    volumes:
+      - me:/data
+
+  server:
+    image: ghcr.io/infratify/arena-server
+
+  avatar:
+    image: ghcr.io/infratify/arena-avatar
+    ports:
+      - "8080:8080"
+    environment:
+      NAME: saxani
+      COLOR: red
+      SERVER: 13.213.70.70
+    depends_on:
+      - profile
+      - server
+
+        
+volumes:
+  me:
