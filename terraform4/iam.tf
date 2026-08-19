@@ -2,7 +2,7 @@ module "rackula_ssm_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role"
   version = "~> 6.0"
 
-  name                  = "rackula-ssm-role"
+  name                    = "rackula-ssm-role"
   create_instance_profile = true
 
   trust_policy_permissions = {

@@ -8,20 +8,27 @@ data "aws_ami" "my_ami" {
   }
 }
 
-module "my_server_public" {
+module "node1" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 6.0"
-
-  name                      = "tf-server-rackula"
-  ami                       = data.aws_ami.my_ami.id
-  instance_type             = "t3.micro"
-  subnet_id                 = module.my_vpc.public_subnets[0]
-  associate_public_ip_address = true
-
+  name                   = "node1"
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = module.my_vpc.public_subnets[0]
   create_security_group  = false
   vpc_security_group_ids = [module.my_sg.id]
-
-  iam_instance_profile = module.rackula_ssm_role.instance_profile_name
-
-  user_data = file("userdata.sh")
+  key_name               = "saxani-key"
+  tags                   = { Name = "node1" }
+}
+module "node2" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 6.0"
+  name                   = "node2"
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = module.my_vpc.public_subnets[0]
+  create_security_group  = false
+  vpc_security_group_ids = [module.my_sg.id]
+  key_name               = "saxani-key"
+  tags                   = { Name = "node2" }
 }

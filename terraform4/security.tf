@@ -13,6 +13,12 @@ module "my_sg" {
       from_port   = 8080
       to_port     = 8080
     }
+    ssh = {
+  cidr_ipv4   = "${chomp(data.http.myip.response_body)}/32"
+  ip_protocol = "tcp"
+  from_port   = 22
+  to_port     = 22
+}
   }
 
   egress_rules = {
@@ -20,4 +26,7 @@ module "my_sg" {
   }
 
   tags = { Name = "tf-vpc-sg" }
+}
+data "http" "myip" {
+  url = "https://ifconfig.me/ip"
 }

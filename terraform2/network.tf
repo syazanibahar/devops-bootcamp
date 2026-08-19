@@ -54,6 +54,6 @@ resource "aws_route_table" "my_route_table_priv" {
 }
 
 resource "aws_route_table_association" "my_link_priv" {
-  subnet_id      = aws_subnet.my_subnet.id
-  route_table_id = aws_route_table.my_route_table.id
+  subnet_id      = aws_subnet.my_subnet_priv.id
+  route_table_id = aws_route_table.my_route_table_priv.id
 }
